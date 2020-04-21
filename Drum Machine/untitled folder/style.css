@@ -1,0 +1,28 @@
+body{ 
+    margin: 0;
+    text-align: center;
+}
+
+h1{
+    padding: 0 0 25px 0;
+}
+
+.keys{
+    display: flex;
+}
+
+.key {
+    border-radius: 3px;
+    border: 1px solid black;
+    font-size: 50px;
+    margin: 15px;
+    padding: 10px;
+    transition: 0.2s;
+}
+
+.playing {
+    background-color: grey;
+    color: white;
+    border: white;
+    transform: scale(0.7);
+}
