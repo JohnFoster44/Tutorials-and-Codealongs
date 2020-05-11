@@ -18,26 +18,28 @@
 
     <div class="settings">
       <div class="setting">
-        <label>Transition time (ms):</label>
-        <input
-          class="slider"
-          type="number"
-          id="time"
-          min="0"
-          max="1000"
-          value="20"
-          step="10"
+        <label
+          >Transition time (ms):
+          <input
+            class="slider"
+            type="number"
+            id="time"
+            min="0"
+            max="1000"
+            value="20"
+            step="10"
         />
+      </label>
+        <h1>current transish time: <span id="currentTime"></span></h1>
         <button id="button">Change timing!</button>
       </div>
-
     </div>
 
-
     <script>
-      const timeEL = document.getElementById('time');
-      const buttonEl = document.getElementById('button');
-
+      const timeEL = document.getElementById("time");
+      const buttonEl = document.getElementById("button");
+      const currentTimeEl = document.getElementById("currentTime");
+      //canvas stuff
       const canvas = document.querySelector("#draw");
       const ctx = canvas.getContext("2d");
       canvas.width = window.innerWidth;
@@ -50,23 +52,30 @@
 
       var time = setInterval(bkg, 1000);
 
-
       function bkg(e) {
         ctx.fillStyle = `hsl(${hue}, 100%, 50%)`;
         ctx.fillRect(0, 0, canvas.width, canvas.height);
         hue++;
       }
+      //canvas end
 
-      //buttons
-      buttonEl.addEventListener('click', ()=>{
-        const button = +buttonEl.value;
-        console.log('button');
+      // get current time on load
+      
+      // function loadedTime(){
+      //   currentTimeEl.innerText = timeEL.value;
+      // };
+
+      loadedTime = () => {currentTimeEl.innerText = timeEL.value};
+
+      loadedTime();
+
+      //change button
+      buttonEl.addEventListener("click", () => {
+        const button = timeEL.value;
+        currentTimeEl.innerText = button;
+        
+        console.log("time change");
       });
-
-      var timeVal = timeEL;
-      timeVal.onclick = function(){
-        console.log('time click')
-      }
 
     </script>
 
