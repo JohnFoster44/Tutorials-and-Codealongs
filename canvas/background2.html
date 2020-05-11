@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=UnifrakturCook:wght@700&display=swap"
+      rel="stylesheet"
+    />
+    <title>Colours on a Timer</title>
+  </head>
+  <body>
+    <canvas id="draw" width="800" height="800"></canvas>
+    <div class="words">
+      <p>|||Colours On A Timer|||</p>
+      <p>by John foster</p>
+    </div>
+
+    <div class="settings">
+      <div class="setting">
+        <label>Transition time (ms):</label>
+        <input
+          class="slider"
+          type="number"
+          id="time"
+          min="0"
+          max="1000"
+          value="20"
+          step="10"
+        />
+        <button id="button">Change timing!</button>
+      </div>
+
+    </div>
+
+
+    <script>
+      const timeEL = document.getElementById('time');
+      const buttonEl = document.getElementById('button');
+
+      const canvas = document.querySelector("#draw");
+      const ctx = canvas.getContext("2d");
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+
+      let hue = 0;
+
+      ctx.fillStyle = `hsl(${hue}, 100%, 50%)`;
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+      var time = setInterval(bkg, 1000);
+
+
+      function bkg(e) {
+        ctx.fillStyle = `hsl(${hue}, 100%, 50%)`;
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+        hue++;
+      }
+
+      //buttons
+      buttonEl.addEventListener('click', ()=>{
+        const button = +buttonEl.value;
+        console.log('button');
+      });
+
+      var timeVal = timeEL;
+      timeVal.onclick = function(){
+        console.log('time click')
+      }
+
+    </script>
+
+    <style>
+      html,
+      body {
+        margin: 0;
+        font-family: "UnifrakturCook", cursive;
+      }
+      #draw {
+        position: fixed;
+        top: 0;
+        left: 0;
+      }
+      .words {
+        position: relative;
+        font-size: 56px;
+        text-shadow: #fff 2px 1px;
+        z-index: 1;
+      }
+      .setting {
+        position: relative;
+        align-items: center;
+        margin: 15px;
+      }
+    </style>
+  </body>
+</html>
