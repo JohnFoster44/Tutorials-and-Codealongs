@@ -12,7 +12,7 @@
   <body>
     <canvas id="draw" width="800" height="800"></canvas>
     <div class="words">
-      <p>|||Colours On A Timer|||</p>
+      <p>||||||Colours|||On|||A|||Timer||||||</p>
       <p>by John foster</p>
     </div>
 
@@ -24,10 +24,10 @@
             class="slider"
             type="number"
             id="time"
-            min="0"
+            min="20"
             max="1000"
             value="20"
-            step="10"
+            step="20"
         />
       </label>
         <h1>current transish time: <span id="currentTime"></span></h1>
@@ -50,9 +50,10 @@
       ctx.fillStyle = `hsl(${hue}, 100%, 50%)`;
       ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-      var time = setInterval(bkg, 1000);
+      let userTime = timeEL.value;
+      var timing = setInterval(bkg, (`${userTime}`));
 
-      function bkg(e) {
+      function bkg() {
         ctx.fillStyle = `hsl(${hue}, 100%, 50%)`;
         ctx.fillRect(0, 0, canvas.width, canvas.height);
         hue++;
@@ -60,23 +61,19 @@
       //canvas end
 
       // get current time on load
-      
-      // function loadedTime(){
-      //   currentTimeEl.innerText = timeEL.value;
-      // };
-
       loadedTime = () => {currentTimeEl.innerText = timeEL.value};
 
       loadedTime();
-
       //change button
       buttonEl.addEventListener("click", () => {
         const button = timeEL.value;
         currentTimeEl.innerText = button;
-        
-        console.log("time change");
+        userTime = timeEL.value;
+        bkg;
       });
 
+      console.log(`${userTime}`)
+      
     </script>
 
     <style>
@@ -92,6 +89,7 @@
       }
       .words {
         position: relative;
+        text-align: center;
         font-size: 56px;
         text-shadow: #fff 2px 1px;
         z-index: 1;
@@ -99,7 +97,12 @@
       .setting {
         position: relative;
         align-items: center;
+        text-align: center;
         margin: 15px;
+      }
+      #button{
+        font-family: "UnifrakturCook", cursive;
+        font-size: 50px;
       }
     </style>
   </body>
