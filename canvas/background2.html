@@ -46,33 +46,35 @@
       canvas.height = window.innerHeight;
 
       let hue = 0;
-
-      ctx.fillStyle = `hsl(${hue}, 100%, 50%)`;
-      ctx.fillRect(0, 0, canvas.width, canvas.height);
-
       let userTime = timeEL.value;
-      var timing = setInterval(bkg, (`${userTime}`));
 
       function bkg() {
         ctx.fillStyle = `hsl(${hue}, 100%, 50%)`;
         ctx.fillRect(0, 0, canvas.width, canvas.height);
         hue++;
+      };
+
+      var timing;
+      
+      function setTime(){
+        timing = setInterval(bkg, `${userTime}`)
       }
-      //canvas end
 
-      // get current time on load
-      loadedTime = () => {currentTimeEl.innerText = timeEL.value};
+     
 
-      loadedTime();
-      //change button
-      buttonEl.addEventListener("click", () => {
-        const button = timeEL.value;
-        currentTimeEl.innerText = button;
-        userTime = timeEL.value;
-        bkg;
-      });
+      // //canvas end
 
-      console.log(`${userTime}`)
+      // // get current time on load
+      // loadedTime = () => {currentTimeEl.innerText = timeEL.value};
+
+      // loadedTime();
+
+      // //change button
+      // buttonEl.addEventListener("click", () => {
+      //   const button = timeEL.value;
+      //   currentTimeEl.innerText = button;
+      //   console.log()
+      // });
       
     </script>
 
