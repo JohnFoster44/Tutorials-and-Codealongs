@@ -12,27 +12,8 @@
   <body>
     <canvas id="draw" width="800" height="800"></canvas>
     <div class="words">
-      <p>||||||Colours|||On|||A|||Timer||||||</p>
+      <p>|||||| C o l o (u) r s ||||||</p>
       <p>by John foster</p>
-    </div>
-
-    <div class="settings">
-      <div class="setting">
-        <label
-          >Transition time (ms):
-          <input
-            class="slider"
-            type="number"
-            id="time"
-            min="20"
-            max="1000"
-            value="20"
-            step="20"
-        />
-      </label>
-        <h1>current transish time: <span id="currentTime"></span></h1>
-        <button id="button">Change timing!</button>
-      </div>
     </div>
 
     <script>
@@ -44,9 +25,11 @@
       const ctx = canvas.getContext("2d");
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
+      
+      ctx.font = '48px serif';
+      ctx.fillText('Hello world', 10, 50);
 
       let hue = 0;
-      let userTime = timeEL.value;
 
       function bkg() {
         ctx.fillStyle = `hsl(${hue}, 100%, 50%)`;
@@ -54,25 +37,7 @@
         hue++;
       };
 
-      var timing = setInterval(bkg, `${userTime}`)
-    
-      //canvas end
-
-      // get current time on load
-      loadedTime = () => {currentTimeEl.innerText = timeEL.value};
-
-      loadedTime();
-
-      //change button
-      buttonEl.addEventListener("click", () => {
-        const button = timeEL.value;
-        currentTimeEl.innerText = button;
-
-        ctx.fillStyle = `hsl(${hue}, 100%, 50%)`;
-        ctx.fillRect(0, 0, canvas.width, canvas.height);
-        console.log()
-      });
-      
+      var timing = setInterval(bkg, 20);      
     </script>
 
     <style>
