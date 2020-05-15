@@ -12,8 +12,6 @@
   <body>
     <canvas id="draw" width="800" height="800"></canvas>
     <div class="words">
-      <p>|||||| C o l o (u) r s ||||||</p>
-      <p>by John foster</p>
     </div>
 
     <script>
@@ -25,19 +23,20 @@
       const ctx = canvas.getContext("2d");
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
-      
-      ctx.font = '48px serif';
-      ctx.fillText('Hello world', 10, 50);
 
       let hue = 0;
 
       function bkg() {
-        ctx.fillStyle = `hsl(${hue}, 100%, 50%)`;
+        ctx.fillStyle = `hsl(${hue}, 100%, 65%)`;
         ctx.fillRect(0, 0, canvas.width, canvas.height);
         hue++;
-      };
+        ctx.font = "bold 111px arial";
+        ctx.fillStyle = `hsl(${hue}, 100%, 40%)`;
+        ctx.fillText("Deluxe Boutique", 400, 425);
+      }
 
-      var timing = setInterval(bkg, 20);      
+      var timing = setInterval(bkg, 20);
+
     </script>
 
     <style>
@@ -64,7 +63,7 @@
         text-align: center;
         margin: 15px;
       }
-      #button{
+      #button {
         font-family: "UnifrakturCook", cursive;
         font-size: 50px;
       }
