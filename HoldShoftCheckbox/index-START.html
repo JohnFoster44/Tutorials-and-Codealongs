@@ -116,11 +116,17 @@
           if (inbetween) {
             checkbox.checked = true;
           }
+
+          //mass undo not working atm 
+          if(checkbox.checked = true){
+            checkbox.checked = !checkbox.checked;
+          }
         });
       }
 
       lastChecked = this;
     }
+
 
     checkboxes.forEach(checkbox => checkbox.addEventListener('click', handleCheck));
   </script>
