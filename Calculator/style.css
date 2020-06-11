@@ -1,0 +1,36 @@
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-size: 40px;
+}
+
+button{
+    font-size: 20px;
+    background-color: #d7d3ce;
+    color: blue;
+    padding: 10px;
+}
+
+#display{
+    display: grid;
+    grid-template-columns: 398px ;
+    grid-template-rows: 50px;
+    border: 1px solid grey;
+    text-align: center;
+}
+
+.buttons{
+    display: grid;
+    text-align: center;
+    grid-template-columns: 100px 100px 100px 100px;
+    grid-template-rows: auto;
+}
+
+.operator{
+    background-color: #d7d3ce;
+    color: red;
+    padding: 10px;
+
+}
