@@ -4,6 +4,7 @@ body{
     align-items: center;
     flex-direction: column;
     font-size: 40px;
+    font-family: sans-serif;
 }
 
 button{
@@ -13,12 +14,54 @@ button{
     padding: 10px;
 }
 
+.name{
+    padding-right: 120px;
+    padding-top: 3px;
+    line-height: 45px;
+}
+
+.bar{
+    display: flex;
+    color: white;
+    background-color: blue;
+    padding: 2px 0 0 2px;
+    margin-bottom: 3px;
+    justify-content: right;
+}
+
+.box{
+    /* border: 1px solid #adaaa6; */
+    border-style: outset;
+    background-color: #d7d3ce;
+    color: black;
+    text-align: center;
+    height: 40px;
+    width: 40px;
+    margin: 2px;
+}
+
+.john{
+    font-size: 15px;
+    padding: 5px 0 0 65px;
+    margin: none;
+}
+
+#calculator{
+    border-style: outset;
+    /* border: 2px solid #adaaa6; */
+    padding: 5px;
+    background-color: #d7d3ce;
+}
+
 #display{
     display: grid;
     grid-template-columns: 398px ;
     grid-template-rows: 50px;
     border: 1px solid grey;
     text-align: center;
+    background-color: white;
+    margin-bottom: 3px;
+    line-height: 1.3;
 }
 
 .buttons{
@@ -26,11 +69,15 @@ button{
     text-align: center;
     grid-template-columns: 100px 100px 100px 100px;
     grid-template-rows: auto;
+
 }
 
 .operator{
     background-color: #d7d3ce;
     color: red;
     padding: 10px;
+}
 
+.depressed{
+    background-color: #adaaa6;
 }
