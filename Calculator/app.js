@@ -63,6 +63,9 @@ function clicked(e) {
     if (action === "decimal") {
       console.log("decimal");
       display.textContent = displayNum + '.';
+      if (!displayNum.includes('.')){
+        display.textContent = displayNum + '.';
+      }
     }
 
     if (action === "clear") {
