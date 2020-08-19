@@ -12,7 +12,7 @@ function clicked(e) {
     const displayNum = display.textContent;
     const previousKeyType = calculator.dataset.previousKeyType;
 
-// NUMBERS ________________________________________________________________
+    // NUMBERS ________________________________________________________________
     if (!action) {
       calculator.dataset.previousKeyType = "number";
 
@@ -26,7 +26,7 @@ function clicked(e) {
         display.textContent = displayNum + keyContent;
       }
     }
-// OPERATORS ( +, /, *, -) ________________________________________________
+    // OPERATORS ( +, /, *, -) ________________________________________________
     if (
       action === "add" ||
       action === "divide" ||
@@ -38,7 +38,14 @@ function clicked(e) {
       calculator.dataset.firstValue = displayNum;
       calculator.dataset.operator = action;
     }
-// EQUALS _________________________________________________________________
+
+    if(previousKeyType === 'operator'){
+      Array.from(key.parentNode.children).forEach((k) =>
+        k.classList.remove("depressed")
+      );
+    }
+
+    // EQUALS _________________________________________________________________
     if (action === "equals") {
       const firstValue = calculator.dataset.firstValue;
       const operator = calculator.dataset.operator;
@@ -61,7 +68,7 @@ function clicked(e) {
       };
       display.textContent = calculate(firstValue, operator, secondValue);
     }
-// DECIMAL ________________________________________________________________
+    // DECIMAL ________________________________________________________________
     if (action === "decimal") {
       calculator.dataset.previousKeyType = "decimal";
 
@@ -71,7 +78,7 @@ function clicked(e) {
         display.textContent = "0.";
       }
     }
-// AC (CLEAR ALL/ALL CLEAR) _______________________________________________
+    // AC (CLEAR ALL/ALL CLEAR) _______________________________________________
     if (action === "clear") {
       calculator.dataset.previousKeyType = "clear";
       display.textContent = "0";
