@@ -39,12 +39,6 @@ function clicked(e) {
       calculator.dataset.operator = action;
     }
 
-    if(previousKeyType === 'operator'){
-      Array.from(key.parentNode.children).forEach((k) =>
-        k.classList.remove("depressed")
-      );
-    }
-
     // EQUALS _________________________________________________________________
     if (action === "equals") {
       const firstValue = calculator.dataset.firstValue;
