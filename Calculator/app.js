@@ -33,7 +33,9 @@ function clicked(e) {
       action === "multiply" ||
       action === "subtract"
     ) {
+
       key.classList.add("depressed");
+
       calculator.dataset.previousKeyType = "operator";
       calculator.dataset.firstValue = displayNum;
       calculator.dataset.operator = action;
@@ -41,9 +43,11 @@ function clicked(e) {
 
     // EQUALS _________________________________________________________________
     if (action === "equals") {
+
       const firstValue = calculator.dataset.firstValue;
       const operator = calculator.dataset.operator;
       const secondValue = displayNum;
+      
       calculator.dataset.previousKeyType = "equals";
 
       const calculate = (n1, operator, n2) => {
@@ -76,6 +80,10 @@ function clicked(e) {
     if (action === "clear") {
       calculator.dataset.previousKeyType = "clear";
       display.textContent = "0";
+
+      Array.from(key.parentNode.children).forEach((k) =>
+      k.classList.remove("depressed")
+    );
     }
   }
 }
